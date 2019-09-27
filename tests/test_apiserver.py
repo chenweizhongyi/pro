@@ -20,6 +20,7 @@ class TestApiServer(ApiServerUnittest):
             "password": "123456"
         }
         req = self.api_client.post(url,json=data)
-
+        print("执行结束")
+        print('test')
         self.assertEqual(201,req.status_code)
         self.assertEqual(True,req.json()['success'])
