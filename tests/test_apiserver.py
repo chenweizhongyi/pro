@@ -9,14 +9,11 @@ class TestApiServer(ApiServerUnittest):
     def setUp(self):
         super(TestApiServer,self).setUp()
         self.host = 'http://127.0.0.1:5000'
-        api_server.app.run()
-        time.sleep(1)
         self.api_client =requests.Session()
         # self.clear_users()
 
     def tearDown(self):
-        pass
-        # super(TestApiServer,self).tearDown()
+        super(TestApiServer,self).tearDown()
 
     def test_create_user_not_existed(self):
         # self.clear_users()
