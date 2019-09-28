@@ -1,16 +1,22 @@
 import requests
+import time
+
 from .base import ApiServerUnittest
+from . import api_server
 
 class TestApiServer(ApiServerUnittest):
 
     def setUp(self):
         super(TestApiServer,self).setUp()
         self.host = 'http://127.0.0.1:5000'
+        api_server.app.run()
+        time.sleep(1)
         self.api_client =requests.Session()
         # self.clear_users()
 
     def tearDown(self):
-        super(TestApiServer,self).tearDown()
+        pass
+        # super(TestApiServer,self).tearDown()
 
     def test_create_user_not_existed(self):
         # self.clear_users()
@@ -20,7 +26,5 @@ class TestApiServer(ApiServerUnittest):
             "password": "123456"
         }
         req = self.api_client.post(url,json=data)
-        print("执行结束")
-        print('test')
         self.assertEqual(201,req.status_code)
         self.assertEqual(True,req.json()['success'])

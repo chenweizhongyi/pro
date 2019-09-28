@@ -1,4 +1,4 @@
-import multiprocessing
+from multiprocessing import Process
 import time
 import unittest
 from . import api_server
@@ -9,11 +9,11 @@ class ApiServerUnittest(unittest.TestCase):
     """
     @classmethod
     def setUpClass(cls):
-        cls.api_server_process = multiprocessing.Process(
+        cls.api_server_process = Process(
             target=api_server.app.run
         )
         cls.api_server_process.run()
-        time.sleep(2)
+        time.sleep(1)
 
     @classmethod
     def tearDownClass(cls):
