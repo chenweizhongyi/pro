@@ -16,6 +16,7 @@ def run_single_test_case(testcase):
         raise ("Params Error")
 
     resp_obj = requests.request(url=url,method=method,**req_kwargs)
+    print('resp_obj_response:',resp_obj)
     diff = diff_response(resp_obj,testcase['response'])
     sucess = True if not diff else False
     return sucess,diff
