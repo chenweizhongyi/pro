@@ -37,6 +37,8 @@ def parse_response_object(resp_obj):
         resp_resp = resp_obj.json()
     except Exception:
         resp_resp = resp_obj.text()
+
+    print(type(resp_resp), ':resp_info:', resp_resp)
     return {
         'status_code': resp_resp.status_code,
         'headers': resp_resp.headrs,
