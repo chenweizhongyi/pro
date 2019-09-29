@@ -23,6 +23,7 @@ def run_single_test_case(testcase):
 def diff_response(resp_obj, expected_resp_json):
     diff_content = {}
     resp_info = parse_response_object(resp_obj)
+    print(type(resp_info),':resp_info:',resp_info)
     if resp_info['status_code'] not in expected_resp_json['status_code']:
         diff_content['status_code'] = resp_info['status_code']
     if resp_info['headers'] not in expected_resp_json['headers']:
