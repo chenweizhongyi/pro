@@ -1,10 +1,8 @@
 import os
-
 import requests
-import time
+
 
 from .base import ApiServerUnittest
-from . import api_server
 from . import test_run
 
 class TestApiServer(ApiServerUnittest):
@@ -29,7 +27,10 @@ class TestApiServer(ApiServerUnittest):
         # self.assertEqual(201,req.status_code)
         # self.assertEqual(True,req.json()['success'])
         case_json = os.path.join(os.getcwd(),'tests/case/test.json')
+        print(case_json)
         data = test_run.load_testcase(case_json)
+        print(data)
         testcases = test_run.run_single_test_case(data)
+        print(testcases)
         success = testcases[0]
         self.assertTrue(success)
