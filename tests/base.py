@@ -14,7 +14,7 @@ class ApiServerUnittest(unittest.TestCase):
         cls.api_server_process = Process(
             target=api_server.app.run
         )
-        cls.api_server_process.run()
+        cls.api_server_process.start()
         time.sleep(0.2)
 
     @classmethod
