@@ -29,6 +29,7 @@ class TestApiServer(ApiServerUnittest):
         # self.assertEqual(201,req.status_code)
         # self.assertEqual(True,req.json()['success'])
         case_json = os.path.join(os.getcwd(),'\\tests\case\\test.json')
-        testcases = test_run.run_single_test_case(case_json)
+        data = test_run.load_testcase(case_json)
+        testcases = test_run.run_single_test_case(data)
         success = testcases[0]
         self.assertTrue(success)

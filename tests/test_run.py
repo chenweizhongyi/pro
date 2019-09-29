@@ -1,4 +1,10 @@
 import requests
+import json
+
+def load_testcase(case_path):
+    with open(case_path,'r') as f:
+        data = json.load(f)
+    return data
 
 def run_single_test_case(testcase):
     req_kwargs = testcase['request']
